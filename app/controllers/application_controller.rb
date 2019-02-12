@@ -1,5 +1,6 @@
 require 'sinatra/base'
-
+require 'pry'
+require './app/models/team.rb'
 class App < Sinatra::Base
 
     set :views, Proc.new { File.join(root, "../views/") }
@@ -9,7 +10,11 @@ class App < Sinatra::Base
   end
 
   post '/teams' do
-    erb :team_erb
+binding.pry
+     @team = Team.new(name: params["team"]["name"], motto: params["team"]["motto"])
+     @amanda = params["team"]["heros"][0]
+     @team.save
+    erb :team
   end
 
 end
