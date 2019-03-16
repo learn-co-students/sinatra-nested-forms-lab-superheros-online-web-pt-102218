@@ -1,26 +1,9 @@
-<h1>Create a Team and Heroes!</h1>
+<h1><%=@team[:name]%></h1>
+<h2> Team Motto: <%=@team[:motto]%></h2><br>
 
-<form action="/team" method="POST">
-
-  <p>Team Name: <input type="text"><br>
-     Team Motto: <input type="text"><br></p>
-
-     <h2>Hero 1</h2>
-     <p>Hero's Name: <input type="text"><br>
-     Hero's Power: <input type="text"><br>
-     Hero's Biography: <input type="text"><br></p>
-
-     <h2>Hero 2</h2>
-     <p>Hero's Name: <input type="text"><br>
-     Hero's Power: <input type="text"><br>
-     Hero's Biography: <input type="text"><br></p>
-
-     <h2>Hero 3</h2>
-     <p>Hero's Name: <input type="text"><br>
-     Hero's Power: <input type="text"><br>
-     Hero's Biography: <input type="text"><br></p>
-     <br>
-
-     <button type="submit" value="Submit">Submit</button>
-
-</form>
+<p><%@members.each do |hero|%>
+Hero Name: <%=hero[:name]%><br>
+  Hero Power: <%=hero[:power]%><br>
+  Hero Biography: <%=hero[:bio]%><br>
+  <%end%>
+</p>
